@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-4">
                     <label for=""><h6>Amount Paid <span class="text-danger">*</span></h6></label>
-                    <input type="number" name="pucAmt" class="form-control">
+                    <input type="number" name="pucAmt" class="form-control" value="{{ old("pucAmt", isset($data) ? $data->pucAmt : '') }}">
                     @error('pucAmt')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
@@ -118,21 +118,21 @@
             <div class="row mb-0">
                 <div class="col-4">
                     <label for=""><h6>From <span class="text-danger">*</span></h6></label>
-                    <input type="date" name="insuranceFrom" class="form-control">
+                    <input type="date" name="insuranceFrom" class="form-control" value="{{ old('insuranceFrom', isset($data) ? \Carbon\Carbon::parse($data->insuranceFrom)->format('Y-m-d') : '') }}">
                     @error('insuranceFrom')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
                 </div>
                 <div class="col-4">
                     <label for=""><h6>To <span class="text-danger">*</span></h6></label>
-                    <input type="date" name="insuranceTo" class="form-control">
+                    <input type="date" name="insuranceTo" class="form-control" value="{{ old('insuranceTo', isset($data) ? \Carbon\Carbon::parse($data->insuranceTo)->format('Y-m-d') : '') }}">
                     @error('insuranceTo')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
                 </div>
                 <div class="col-4">
                     <label for=""><h6>Amount Paid <span class="text-danger">*</span></h6></label>
-                    <input type="number" name="insAmt" class="form-control">
+                    <input type="number" name="insuranceAmt" class="form-control" value="{{ old("insuranceAmt", isset($data) ? $data->insuranceAmt : '') }}">
                     @error('insAmt')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
@@ -143,14 +143,14 @@
             <div class="row mb-0">
                 <div class="col-4">
                     <label for=""><h6>From <span class="text-danger">*</span></h6></label>
-                    <input type="date" name="fitnessFrom" class="form-control">
+                    <input type="date" name="fitnessFrom" class="form-control" value="{{ old('fitnessFrom', isset($data) ? \Carbon\Carbon::parse($data->fitnessFrom)->format('Y-m-d') : '') }}">
                     @error('fitnessFrom')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
                 </div>
                 <div class="col-4">
                     <label for=""><h6>To <span class="text-danger">*</span></h6></label>
-                    <input type="date" name="fitnessTo" class="form-control">
+                    <input type="date" name="fitnessTo" class="form-control" value="{{ old('fitnessTo', isset($data) ? \Carbon\Carbon::parse($data->fitnessTo)->format('Y-m-d') : '') }}">
                     @error('fitnessTo')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror

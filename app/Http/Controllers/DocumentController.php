@@ -27,9 +27,11 @@ class DocumentController extends Controller
      */
     public function create()
     {
-         $user = user::where('id', session('user'))->get();
-         $sessionName = sesssion::where('id',$user[0]->session_id)->get();
-         return view('documents.create', compact('user','sessionName'));
+        $user = user::where('id', session('user'))->get();
+        $driverSel = staffDetail::where('designation','driver')->get();
+        $cleanerSel = staffDetail::where('designation','cleaner')->get();
+        $sessionName = sesssion::where('id',$user[0]->session_id)->get();
+        return view('documents.create', compact('user','sessionName','driverSel', 'cleanerSel'));
     }
 
     /**
@@ -47,7 +49,7 @@ class DocumentController extends Controller
             'pucAmt' => 'required',
             'insuranceFrom' => 'required',
             'insuranceTo' => 'required',
-            'insAmt' => 'required',
+            'insuranceAmt' => 'required',
             'fitnessFrom' => 'required',
             'fitnessTo' => 'required',
             'fitnessAmt' => 'required',
@@ -65,7 +67,7 @@ class DocumentController extends Controller
             'pucAmt.required' => 'Enter Valid Amount',
             'insuranceFrom.required' => 'Select "Insurance From Date" !',
             'insuranceTo.required' => 'Select "Insurance To Date" !',
-            'insAmt.required' => 'Enter Valid Amount',
+            'insuranceAmt.required' => 'Enter Valid Amount',
             'fitnessFrom.required' => 'Select "Fitness From Date" !',
             'fitnessTo.required' => 'Select "Fitness To Date" !',
             'fitnessAmt.required' => 'Enter Valid Amount',
@@ -84,7 +86,7 @@ class DocumentController extends Controller
         $data->pucAmt = $request->pucAmt;
         $data->insuranceFrom = $request->insuranceFrom;
         $data->insuranceTo = $request->insuranceTo;
-        $data->insuranceAmt = $request->insAmt;
+        $data->insuranceAmt = $request->insuranceAmt;
         $data->fitnessFrom = $request->fitnessFrom;
         $data->fitnessTo = $request->fitnessTo;
         $data->fitnessAmt = $request->fitnessAmt;
@@ -136,7 +138,7 @@ class DocumentController extends Controller
             'pucAmt' => 'required',
             'insuranceFrom' => 'required',
             'insuranceTo' => 'required',
-            'insAmt' => 'required',
+            'insuranceAmt' => 'required',
             'fitnessFrom' => 'required',
             'fitnessTo' => 'required',
             'fitnessAmt' => 'required',
@@ -154,7 +156,7 @@ class DocumentController extends Controller
             'pucAmt.required' => 'Enter Valid Amount',
             'insuranceFrom.required' => 'Select "Insurance From Date" !',
             'insuranceTo.required' => 'Select "Insurance To Date" !',
-            'insAmt.required' => 'Enter Valid Amount',
+            'insuranceAmt.required' => 'Enter Valid Amount',
             'fitnessFrom.required' => 'Select "Fitness From Date" !',
             'fitnessTo.required' => 'Select "Fitness To Date" !',
             'fitnessAmt.required' => 'Enter Valid Amount',
@@ -173,7 +175,7 @@ class DocumentController extends Controller
         $data->pucAmt = $request->pucAmt;
         $data->insuranceFrom = $request->insuranceFrom;
         $data->insuranceTo = $request->insuranceTo;
-        $data->insuranceAmt = $request->insAmt;
+        $data->insuranceAmt = $request->insuranceAmt;
         $data->fitnessFrom = $request->fitnessFrom;
         $data->fitnessTo = $request->fitnessTo;
         $data->fitnessAmt = $request->fitnessAmt;
