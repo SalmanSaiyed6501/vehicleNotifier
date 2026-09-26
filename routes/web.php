@@ -20,6 +20,7 @@ Route::controller(adminController::class)->group(function(){
     Route::get('/logout', 'logout')->name('vehicle.logout');
     Route::get('/', 'index')->name('vehicle.index')->middleware('noAccess');
     Route::get('/send-mail', 'sendMail')->name('vehicle.sendMail')->middleware('noAccess');
+    Route::get('/checkExpiry', 'checkExpiry')->middleware('noAccess');
 });
 
 Route::resource('/busStaffDetails', BusStaffDetails::class)->middleware('noAccess');

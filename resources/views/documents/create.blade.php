@@ -7,9 +7,7 @@
         <div class="card-header ">
             <h4 class="card-title">Add Vehicle Details</h4>
             <p class="card-category">Enter All the necessary details about the vehicle.</p>
-        </div>
-         @if(session()->has('success'))
-        <div class="container">
+             @if(session()->has('success'))
             <div class="alert alert-success" role="alert">
                 <h6 class="m-0"></b>{{session('success')}}</h6>
                 <script>
@@ -18,8 +16,8 @@
                 }, 1500); 
                 </script>
             </div>
+            @endif
         </div>
-        @endif
         <form action="{{ isset($data) ?  route('documents.update', $data->id) : route('documents.store') }}" method="POST">
         @if (isset($data))
             @method('PUT')
@@ -157,7 +155,7 @@
                 </div>
                 <div class="col-4">
                     <label for=""><h6>Amount Paid <span class="text-danger">*</span></h6></label>
-                    <input type="number" name="fitnessAmt" class="form-control">
+                    <input type="number" name="fitnessAmt" class="form-control" value="{{ old("fitnessAmt", isset($data) ? $data->fitnessAmt : '') }}">
                     @error('fitnessAmt')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
@@ -168,21 +166,21 @@
             <div class="row mb-0">
                 <div class="col-4">
                     <label for=""><h6>From <span class="text-danger">*</span></h6></label>
-                    <input type="date" name="permitFrom" class="form-control">
+                    <input type="date" name="permitFrom" class="form-control" value="{{ old('permitFrom', isset($data) ? \Carbon\Carbon::parse($data->permitFrom)->format('Y-m-d') : '') }}">
                     @error('permitFrom')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
                 </div>
                 <div class="col-4">
                     <label for=""><h6>To <span class="text-danger">*</span></h6></label>
-                    <input type="date" name="permitTo" class="form-control">
+                    <input type="date" name="permitTo" class="form-control" value="{{ old('permitTo', isset($data) ? \Carbon\Carbon::parse($data->permitTo)->format('Y-m-d') : '') }}">
                     @error('permitTo')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror
                 </div>
                 <div class="col-4">
                     <label for=""><h6>Amount Paid <span class="text-danger">*</span></h6></label>
-                    <input type="number" name="permitAmt" class="form-control">
+                    <input type="number" name="permitAmt" class="form-control" value="{{ old("permitAmt", isset($data) ? $data->permitAmt : '') }}">
                     @error('permitAmt')
                         <div class="text-danger mt-2"><h6>{{ $message }}</h6></div>
                     @enderror

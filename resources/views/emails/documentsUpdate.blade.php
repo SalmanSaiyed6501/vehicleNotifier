@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome</title>
+    <meta charset="UTF-8">
+    <title>Vehicle Document Expiry Reminder</title>
 </head>
+
 <body>
-    <h1>Hello, Annu!</h1>
-    <p>Thank you for signing up. We are glad to have you here!</p>
+
+    <h2>Vehicle Document Expiry Reminder</h2>
+
+    <p>{!! nl2br(e($msg)) !!}</p>
+
+    <p>
+        Please renew the required document(s) before the expiry date.
+    </p>
+
 </body>
 </html>

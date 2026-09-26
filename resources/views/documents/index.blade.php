@@ -10,6 +10,16 @@
                 <a href="{{ route('documents.create') }}" class="btn btn-warning p-1" style="color: #000!important; "><span class="m-0"><b>+ Add New</b></span></a>
              </div>
              <p class="card-category">Table below shows Total Drivers and Conductors</p>
+              @if(session()->has('success'))
+              <div class="alert alert-success" role="alert">
+                  <h6 class="m-0"></b>{{session('success')}}</h6>
+                  <script>
+                  setTimeout(() => {
+                      window.location.reload();
+                  }, 1500);
+                  </script>
+              </div>
+              @endif
         </div>
         <div class="card-body">
             <table class="table table-head-bg-info table-striped table-hover table-border">
@@ -35,10 +45,14 @@
                         <td>{{ \Carbon\Carbon::parse($value->insuranceTo)->format('d/m/Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($value->fitnessTo)->format('d/m/Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($value->permitTo)->format('d/m/Y') }}</td>
-                        <td>
-                            <button class="btn p-1" style="background: #2c0202; color:white;" data-toggle="modal" data-backdrop="static" data-target="#viewDetails"><h6 class="m-0"><i class="la la-file"></i></h6></button>
-                            <a href="{{ route('documents.edit', $value->id) }}" class="btn text-white p-1" style="background: #00a870;"><h6 class="m-0"><i class="la la-edit"></i></h6></a>
-                            <button class="btn btn-danger p-1" onclick="return confirm('Are You Sure to Delete?');"><h6 class="m-0"><i class="la la-trash"></i></h6></button>
+                        <td class="d-flex">
+                            <button class="btn p-1" style="background: #2c0202; color:white;" data-toggle="modal" data-backdrop="static" data-target="#viewDetails"><h6 class="m-0"><i class="la la-file"></i></h6></button> &nbsp;&nbsp;
+                            <a href="{{ route('documents.edit', $value->id) }}" class="btn text-white p-1" style="background: #00a870;"><h6 class="m-0"><i class="la la-edit"></i></h6></a>&nbsp;&nbsp;
+                            <form action="{{ route('documents.destroy',$value->id) }}" method="POST" onsubmit="return confirm('You Want to Delete -- {{$value->registeredNo}} ?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger p-1 text-white"><h6 class="m-0"><i class="la la-trash"></i></h6></button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

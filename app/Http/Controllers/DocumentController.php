@@ -191,11 +191,11 @@ class DocumentController extends Controller
         return redirect()->back()->withInput();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $value = vehicleDetail::findOrFail($id);
+        $value->delete();
+        session()->flash('success', 'Deleted Successfully !');
+        return redirect()->back();
     }
 }
