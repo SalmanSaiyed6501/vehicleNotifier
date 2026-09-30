@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2026 at 11:41 AM
+-- Generation Time: Sep 30, 2026 at 11:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -82,13 +82,6 @@ CREATE TABLE `staff_details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `staff_details`
---
-
-INSERT INTO `staff_details` (`id`, `name`, `designation`, `email`, `contact`, `dob`, `doj`, `session_id`, `created_at`, `updated_at`) VALUES
-(1, 'Subhash Fulvar', 'cleaner', 'Subhash@gmail.com', '7894264546', '2026-12-31', '2026-12-31', '1', '2026-09-23 01:50:55', '2026-09-23 03:57:37');
-
 -- --------------------------------------------------------
 
 --
@@ -109,7 +102,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Salman', 'st.francishighschool.vapi@gmail.com', '$2y$12$IXH9GqcYF758gaN8tgPJw.FE2e47lgxeJN4B4VzstoOdu6EYQKix.', '2026-09-17 22:11:24', '2026-09-17 22:11:24'),
+(1, 'Salman', 'salman.office6501@gmail.com', '$2y$12$IXH9GqcYF758gaN8tgPJw.FE2e47lgxeJN4B4VzstoOdu6EYQKix.', '2026-09-17 22:11:24', '2026-09-17 22:11:24'),
 (2, 'Tester', 'tester@gmail.com', '$2y$12$IXH9GqcYF758gaN8tgPJw.FE2e47lgxeJN4B4VzstoOdu6EYQKix.', '2026-09-02 07:45:36', '2026-09-02 07:45:39');
 
 -- --------------------------------------------------------
@@ -146,7 +139,7 @@ CREATE TABLE `vehicle_details` (
 --
 
 INSERT INTO `vehicle_details` (`id`, `registeredNo`, `vehicleType`, `driver`, `cleaner`, `pucFrom`, `pucTo`, `pucAmt`, `insuranceFrom`, `insuranceTo`, `insuranceAmt`, `fitnessFrom`, `fitnessTo`, `fitnessAmt`, `permitFrom`, `permitTo`, `permitAmt`, `session_id`, `created_at`, `updated_at`) VALUES
-(1, 'GJ 15 AX 1441', 'bus', 'common', 'no', '2026-09-02', '2026-09-16', '12', '2026-09-01', '2026-09-08', '1232', '2026-09-03', '2026-09-05', '123', '2026-09-19', '2026-09-18', '123', '1', '2026-09-17 22:42:27', '2026-09-17 22:42:27');
+(2, 'GJ 15 AX 1995', 'bus', 'common', 'no', '2026-12-31', '2026-09-26', '125', '2026-12-31', '2027-01-05', '250', '2026-12-31', '2027-01-05', '223', '2026-12-31', '2027-01-05', '223', '1', '2026-09-25 21:30:51', '2026-09-25 21:30:51');
 
 --
 -- Indexes for dumped tables
@@ -202,7 +195,7 @@ ALTER TABLE `sesssions`
 -- AUTO_INCREMENT for table `staff_details`
 --
 ALTER TABLE `staff_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -214,7 +207,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vehicle_details`
 --
 ALTER TABLE `vehicle_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
